@@ -1,0 +1,142 @@
+:root {
+  /* Custom color palette from requirements */
+  --ttt-primary: #009688;
+  --ttt-secondary: #263238;
+  --ttt-accent: #FF9800;
+  --ttt-bg: #f8f9fa;
+  --ttt-board-bg: #fff;
+  --ttt-board-border: #e0e0e0;
+  --ttt-cell-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.ttt-root {
+  background: var(--ttt-bg);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+.ttt-container {
+  background: var(--ttt-board-bg);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px 0 rgba(38,50,56,0.08), 0 1.5px 10px 0 #0096881A;
+  padding: 28px 18px 24px 18px;
+  margin: 18px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+}
+
+.ttt-title {
+  color: var(--ttt-secondary);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 2px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.ttt-status {
+  min-height: 1.5rem;
+  color: var(--ttt-secondary);
+  font-size: 1.07rem;
+  margin-bottom: 1.2em;
+}
+
+.ttt-board {
+  background: var(--ttt-board-bg);
+  border: 2.5px solid var(--ttt-board-border);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 55px);
+  grid-template-rows: repeat(3, 55px);
+  gap: 11px;
+  justify-content: center;
+  margin-bottom: 1.7em;
+  box-shadow: var(--ttt-cell-shadow);
+}
+
+.ttt-cell {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--ttt-cell-shadow);
+  background: #F5F5F5;
+  color: var(--ttt-primary);
+  width: 55px;
+  height: 55px;
+  font-size: 2.15rem;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.18s, box-shadow 0.18s;
+  text-align: center;
+  user-select: none;
+}
+
+.ttt-cell:disabled,
+.ttt-cell[aria-disabled="true"] {
+  background: #ececec;
+  color: #bababa;
+  cursor: not-allowed;
+}
+
+.ttt-cell:focus-visible {
+  outline: 2px solid var(--ttt-accent);
+  box-shadow: 0 0 0 3px #FF980034;
+}
+
+.ttt-restart-btn {
+  background: var(--ttt-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 0.5em;
+  padding: 0.59em 2.1em;
+  font-size: 1.01rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 6px 0 #ff980023;
+  letter-spacing: 0.02em;
+}
+
+.ttt-restart-btn:hover,
+.ttt-restart-btn:focus-visible {
+  background: #f09b28;
+  outline: none;
+}
+
+.ttt-legend {
+  margin-top: 0.9em;
+  color: #626262;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 600px) {
+  .ttt-container {
+    padding: 11vw 2vw 9vw 2vw;
+    max-width: 97vw;
+    border-radius: 10px;
+  }
+  .ttt-board {
+    grid-template-columns: repeat(3, 22vw);
+    grid-template-rows: repeat(3, 22vw);
+    gap: 3vw;
+  }
+  .ttt-cell {
+    width: 22vw;
+    height: 22vw;
+    font-size: 8vw;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ttt-title { font-size: 1.25rem; }
+}
